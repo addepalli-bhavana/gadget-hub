@@ -38,7 +38,7 @@ const ForgotPasswordPage = () => {
     ) {
       setIsLoading(true);
       try {
-        const url = `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=${process.env.REACT_APP_GADGET_HUB_FIREBASE_API_KEY}`;
+        const url = `https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyB5tdcjlszYCfz70fgr4jqazeg-W-zO7_I`;
         const response = await fetch(url, {
           method: "POST",
           body: JSON.stringify({

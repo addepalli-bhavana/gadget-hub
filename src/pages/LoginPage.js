@@ -35,7 +35,7 @@ const LoginPage = () => {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_GADGET_HUB_FIREBASE_API_KEY}`,
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyB5tdcjlszYCfz70fgr4jqazeg-W-zO7_I`,
         {
           method: "POST",
           body: JSON.stringify({
