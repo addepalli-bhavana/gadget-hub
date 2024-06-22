@@ -8,7 +8,9 @@ const ProductsReducer = (state, action) => {
       ...state,
       isProductsLoading: false,
       products: action.payload.sort((a, b) => a.price - b.price),
-      featuredProducts: action.payload.slice(0, 6),
+      featuredProducts: action.payload.filter(
+        (product) => product.featured === true
+      ),
       filteredProducts: action.payload.sort((a, b) => a.price - b.price),
     };
   }
@@ -55,12 +57,12 @@ const ProductsReducer = (state, action) => {
     }
     if (state.sortValue === "name-a") {
       tempProducts = tempProducts.sort((a, b) => {
-        return a.title.localeCompare(b.title);
+        return a.name.localeCompare(b.name);
       });
     }
     if (state.sortValue === "name-z") {
       tempProducts = tempProducts.sort((a, b) => {
-        return b.title.localeCompare(a.title);
+        return b.name.localeCompare(a.name);
       });
     }
     return { ...state, filteredProducts: tempProducts };
@@ -74,7 +76,7 @@ const ProductsReducer = (state, action) => {
     const { products, searchText } = state;
     let tempProducts = [...products];
     tempProducts = tempProducts.filter((prod) => {
-      return prod.title.toLowerCase().startsWith(searchText.toLowerCase());
+      return prod.name.toLowerCase().startsWith(searchText.toLowerCase());
     });
     return { ...state, filteredProducts: tempProducts };
   }

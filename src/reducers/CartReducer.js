@@ -1,24 +1,19 @@
 const CartReducer = (state, action) => {
-  if (action.type === "INITIALIZE_CART") {
+  if (action.type === "INITIALIZE_CART_AND_ORDERS") {
     return {
       ...state,
-      cart: action.payload,
-    };
-  }
-  if (action.type === "INITIALIZE_ORDERS") {
-    return {
-      ...state,
-      orders: action.payload,
+      cart: action.payload.cart,
+      orders: action.payload.orders,
     };
   }
 
   if (action.type === "ADD_CART_ITEM") {
-    const { id, title, images, price, stock } = action.payload;
+    const { id, name, image, price, stock } = action.payload;
     const newItem = {
       id: id,
-      title,
+      name,
       price: price,
-      image: images[0],
+      image: image[0].url,
       amount: 1,
       maxStock: stock,
     };

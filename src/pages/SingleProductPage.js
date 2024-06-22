@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import BreadCrumb from "../components/BreadCrumb";
+import ProductImages from "../components/ProductImages";
+import Stars from "../components/Stars";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
 import AddToCart from "../components/AddToCart";
-import Rating from "../components/Rating";
-import ProductImages from "../components/ProductImages";
 import ProductsContext from "../contexts/ProductsContext";
 import { formatPrice } from "../utils/helpers";
 import { singleProductURL as url } from "../utils/constants";
@@ -22,7 +22,7 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchSingleProduct(`${url}${id}`);
+    fetchSingleProduct(`${url}?id=${id}`);
     // eslint-disable-next-line
   }, [id]);
 
@@ -31,14 +31,14 @@ const SingleProductPage = () => {
   }
 
   const {
-    images,
-    title,
-    rating,
+    image,
+    name,
+    stars,
     price,
     description,
     stock,
     id: sku,
-    brand,
+    company,
   } = product;
 
   return (
@@ -48,10 +48,10 @@ const SingleProductPage = () => {
         <Error />
       ) : (
         <section className="section section-center single-product">
-          <ProductImages images={images} />
+          <ProductImages image={image} />
           <section className="single-product-info">
-            <h2>{title}</h2>
-            <Rating rating={rating} />
+            <h2>{name}</h2>
+            <Stars stars={stars} />
             <h5 className="price">{formatPrice(price)}</h5>
             <p className="desc">{description}</p>
             <p className="info">
@@ -59,12 +59,12 @@ const SingleProductPage = () => {
               {stock > 0 ? "in stock" : "out of stock"}
             </p>
             <p className="info">
-              <span>id : </span> 
+              <span>id : </span>
               {sku}
             </p>
             <p className="info">
-              <span>brand : </span>
-              {brand}
+              <span>company : </span>
+              {company}
             </p>
             {stock > 0 && <AddToCart product={product} />}
           </section>

@@ -11,7 +11,7 @@ const OrdersContent = () => {
       <div className="orders-list">
         {orders.map((item, idx) => {
           const {
-            title,
+            name,
             amount,
             price,
             deliveryDate,
@@ -24,10 +24,10 @@ const OrdersContent = () => {
 
           return (
             <article className="order" key={idx}>
-              <img src={image} alt={title} />
+              <img src={image} alt={name} />
               <div>
                 <h5>
-                  product name : <span>{title}</span>
+                  product name : <span>{name}</span>
                 </h5>
                 <h5>
                   price : <span>{formatPrice(price)}</span>

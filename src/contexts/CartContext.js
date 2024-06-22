@@ -13,12 +13,8 @@ export const CartProvider = ({ children }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const initializeCart = (cart) => {
-    dispatch({ type: "INITIALIZE_CART", payload: cart });
-  };
-
-  const initializeOrders = (orders) => {
-    dispatch({ type: "INITIALIZE_ORDERS", payload: orders });
+  const initializeCartAndOrdersData = (cartAndOrdersData) => {
+    dispatch({ type: "INITIALIZE_CART_AND_ORDERS", payload: cartAndOrdersData });
   };
 
   const addCartItem = (product) => {
@@ -52,8 +48,7 @@ export const CartProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         ...state,
-        initializeCart,
-        initializeOrders,
+        initializeCartAndOrdersData,
         addCartItem,
         removeCartItem,
         toggleCartItemAmount,

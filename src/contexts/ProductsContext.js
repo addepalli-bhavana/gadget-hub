@@ -33,7 +33,7 @@ export const ProductsProvider = ({ children }) => {
       const products = await response.json();
       dispatch({
         type: "PRODUCTS_SUCCESS",
-        payload: products.products,
+        payload: products,
       });
     } catch (error) {
       console.log(error);

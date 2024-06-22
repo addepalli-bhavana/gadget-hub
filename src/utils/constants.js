@@ -71,7 +71,6 @@ export const footerIcons = [
   { id: 3, url: "https://www.youtube.com", icon: <AiFillYoutube /> },
 ];
 
-export const productsURL =
-  "https://dummyjson.com/products/category/smartphones";
+export const productsURL = "https://api.pujakaitem.com/api/products";
 
-export const singleProductURL = `https://dummyjson.com/products/`;
+export const singleProductURL = "https://api.pujakaitem.com/api/products";

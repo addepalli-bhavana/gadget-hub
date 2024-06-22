@@ -25,8 +25,8 @@ const FeaturedProducts = () => {
         return (
           <article className="featured-product" key={product.id}>
             <img
-              src={product.thumbnail}
-              alt={product.title}
+              src={product.image}
+              alt={product.name}
               className="featured-img"
             />
             <Link to={`/products/${product.id}`} className="view-details-btn">

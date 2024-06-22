@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 
-const ProductImages = ({ images = [] }) => {
-  const [mainImage, setMainImage] = useState(images[0]);
+const ProductImages = ({ image = [{url:""}] }) => {
+  console.log(image);
+  const [mainImage, setMainImage] = useState(image[0]);
   return (
     <section className="product-images">
-      <img src={mainImage} alt="product" className="main-image" />
+      <img src={mainImage.url} alt="product" className="main-image" />
       <div className="small-images">
-        {images.map((img, index) => {
+        {image.map((img, index) => {
           return (
             <img
-              src={img}
+              src={img.url}
               alt="product"
               key={index}
               className={img === mainImage ? "active-image" : ""}
-              onClick={() => setMainImage(images[index])}
+              onClick={() => setMainImage(image[index])}
             />
           );
         })}

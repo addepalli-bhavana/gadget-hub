@@ -1,50 +1,50 @@
 import React from "react";
 import { BsStarFill, BsStarHalf, BsStar } from "react-icons/bs";
 
-const Rating = ({ rating}) => {
+const Stars = ({ stars}) => {
   return (
   
-      <div className="rating">
+      <div className="stars">
         <span>
-          {rating >= 1 ? (
+          {stars >= 1 ? (
             <BsStarFill />
-          ) : rating >= 0.5 ? (
+          ) : stars >= 0.5 ? (
             <BsStarHalf />
           ) : (
             <BsStar />
           )}
         </span>
         <span>
-          {rating >= 2 ? (
+          {stars >= 2 ? (
             <BsStarFill />
-          ) : rating >= 1.5 ? (
+          ) : stars >= 1.5 ? (
             <BsStarHalf />
           ) : (
             <BsStar />
           )}
         </span>
         <span>
-          {rating >= 3 ? (
+          {stars >= 3 ? (
             <BsStarFill />
-          ) : rating >= 2.5 ? (
+          ) : stars >= 2.5 ? (
             <BsStarHalf />
           ) : (
             <BsStar />
           )}
         </span>
         <span>
-          {rating >= 4 ? (
+          {stars >= 4 ? (
             <BsStarFill />
-          ) : rating >= 3.5 ? (
+          ) : stars >= 3.5 ? (
             <BsStarHalf />
           ) : (
             <BsStar />
           )}
         </span>
         <span>
-          {rating === 5 ? (
+          {stars === 5 ? (
             <BsStarFill />
-          ) : rating >= 4.5 ? (
+          ) : stars >= 4.5 ? (
             <BsStarHalf />
           ) : (
             <BsStar />
@@ -55,4 +55,4 @@ const Rating = ({ rating}) => {
   );
 };
 
-export default Rating;
+export default Stars;

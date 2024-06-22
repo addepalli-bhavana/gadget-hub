@@ -6,7 +6,7 @@ import { formatPrice } from "../utils/helpers";
 
 const CartItem = ({ item }) => {
   const { removeCartItem, toggleCartItemAmount } = useContext(CartContext);
-  const { id, image, title, price, amount, maxStock } = item;
+  const { id, image, name, price, amount, maxStock } = item;
 
   const handleIncreaseAmount = () => {
     const newAmount = amount + 1;
@@ -33,9 +33,9 @@ const CartItem = ({ item }) => {
 
   return (
     <article className="cart-item">
-      <img src={image} alt={title} />
+      <img src={image} alt={name} />
       <div className="cart-item-info">
-        <h4>{title}</h4>
+        <h4>{name}</h4>
         <h5>{formatPrice(price)}</h5>
         <div className="btns">
           <button

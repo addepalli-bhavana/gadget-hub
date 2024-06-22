@@ -56,7 +56,7 @@ const LoginPage = () => {
       emailRef.current.value = "";
       passwordRef.current.value = "";
       loginUser(responseData.idToken, email);
-      localStorage.setItem("token", responseData.token);
+      localStorage.setItem("token", responseData.idToken);
       localStorage.setItem("email", responseData.email);
       toast.success("Logged in successfully!");
       history.replace("/");
